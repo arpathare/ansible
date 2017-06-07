@@ -1,0 +1,18 @@
+
+project_name: myproject
+
+install_root: /opt/myproject
+
+wsgi_module: wsgi.py
+
+pythonpath: "/usr/lib/python2.7/site-packages/"
+
+project_repo: https://github.com/arpathare/ansible.git
+
+conf_dir: "{{install_root}}/{{project_name}}/conf"
+
+apache_dir: /etc/apache2
+
+configuration_files:
+  - { src: "{{conf_dir}}/my.conf", dest: "{{apache_dir}}/sites-enabled/"}
+  - { src: "{{conf_dir}}/ports.conf", dest: "{{apache_dir}}/" }
